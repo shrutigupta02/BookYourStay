@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderLust</title>
+</head>
+<body>
+    <form method="post" action="/hotels/<%=hotel.id%>?_method=PUT">
+        <input type="text" name="hotel[title]" value="<%=hotel.title%>">
+        <br><br>
+        <textarea name="hotel[description]"><%=hotel.description%></textarea>
+        <br><br>
+        <input type="text" name="hotel[location]" value="<%=hotel.location%>">
+        <br><br>
+        <input type="text" name="hotel[country]" value="<%=hotel.country%>">
+        <br><br>
+        <input type="text" name="hotel[price]" value="<%=hotel.price%>">
+        <br><br>
+        <input type="text" name="hotel[image]" value="<%=hotel.image.url%>">
+        <br><br>
+        <button>ADD</button>
+    </form>
+</body>
+</html>
