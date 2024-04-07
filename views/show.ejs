@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= hotel.title %></title>
+</head>
+<body>
+    <h1><%= hotel.title %></h1>
+    <p><%= hotel.description %></p>
+    <img src = '<%=hotel.image.url%>'>
+    <h4><%= hotel.location %></h4>
+    <h4><%= hotel.country %></h4>
+    <h3>&#8377;<%= hotel.price.toLocaleString("en-IN") %></h3>
+</body>
+</html>

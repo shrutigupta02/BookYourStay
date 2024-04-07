@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Stay</title>
+</head>
+<body>
+    <h1>HOTELS</h1>
+    <form method="get" action="/hotels/new">
+        <button>NEW</button>
+    </form>
+    <% for(hotel of hotels){%>
+    <h2><a href="/hotels/<%=hotel.id%>"><%=hotel.title;%></a></h2>
+    <p><%=hotel.description;%></p>
+    <image src="<%=hotel.image.url%>"></image>
+    <%}%>
+</body>
+</html>
