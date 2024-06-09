@@ -4,22 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WanderLust</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .form-container h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .btn-edit {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <form method="post" action="/hotels/<%=hotel.id%>?_method=PUT">
-        <input type="text" name="hotel[title]" value="<%=hotel.title%>">
-        <br><br>
-        <textarea name="hotel[description]"><%=hotel.description%></textarea>
-        <br><br>
-        <input type="text" name="hotel[location]" value="<%=hotel.location%>">
-        <br><br>
-        <input type="text" name="hotel[country]" value="<%=hotel.country%>">
-        <br><br>
-        <input type="text" name="hotel[price]" value="<%=hotel.price%>">
-        <br><br>
-        <input type="text" name="hotel[image]" value="<%=hotel.image.url%>">
-        <br><br>
-        <button>ADD</button>
-    </form>
+    <div class="container">
+        <div class="form-container">
+            <h1>Edit Hotel Details</h1>
+            <form method="post" action="/hotels/<%=hotel.id%>?_method=PUT">
+                <div class="form-group">
+                    <input type="text" name="hotel[title]" class="form-control" value="<%=hotel.title%>" placeholder="Enter Hotel name" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="hotel[description]" class="form-control" placeholder="Enter Hotel description" rows="3" required><%=hotel.description%></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="hotel[location]" class="form-control" value="<%=hotel.location%>" placeholder="Enter location" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="hotel[country]" class="form-control" value="<%=hotel.country%>" placeholder="Enter country" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="hotel[price]" class="form-control" value="<%=hotel.price%>" placeholder="Enter Hotel price" required>
+                </div>
+                <div class="form-group">
+                    <input type="url" name="hotel[image]" class="form-control" value="<%=hotel.image.url%>" placeholder="Add a picture URL" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-edit">UPDATE</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

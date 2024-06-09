@@ -4,18 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= hotel.title %></title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .hotel-details {
+            margin-top: 20px;
+        }
+        .hotel-img {
+            width: 100%;
+            height: 400px; /* Set a fixed height */
+            object-fit: cover; /* Ensures the image covers the area and maintains aspect ratio */
+            margin-bottom: 20px;
+        }
+        .btn-edit, .btn-delete {
+            margin-top: 20px;
+        }
+        .btn-delete {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1><%= hotel.title %></h1>
-    <p><%= hotel.description %></p>
-    <img src = '<%=hotel.image.url%>'>
-    <h4><%= hotel.location %></h4>
-    <h4><%= hotel.country %></h4>
-    <h3>&#8377;<%= hotel.price.toLocaleString("en-IN") %></h3>
-    <a href="/hotels/<%=hotel.id%>/edit">Edit details</a>
-    <br><br>
-    <form method="post" action="/hotels/<%=hotel.id%>?_method=DELETE">
-        <button>DELETE HOTEL</button>
-    </form>
+    <div class="container">
+        <h1 class="text-center"><%= hotel.title %></h1>
+        <div class="hotel-details">
+            <img src="<%= hotel.image.url %>" class="hotel-img img-fluid" alt="<%= hotel.title %>">
+            <p><%= hotel.description %></p>
+            <h4>Location: <%= hotel.location %></h4>
+            <h4>Country: <%= hotel.country %></h4>
+            <h3>Price: &#8377;<%= hotel.price.toLocaleString("en-IN") %></h3>
+            <a href="/hotels/<%= hotel.id %>/edit" class="btn btn-warning btn-edit">Edit details</a>
+            <form method="post" action="/hotels/<%= hotel.id %>?_method=DELETE" class="d-inline">
+                <button class="btn btn-danger btn-delete">DELETE HOTEL</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
